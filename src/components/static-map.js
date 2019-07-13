@@ -87,6 +87,7 @@ const defaultProps = Object.assign({}, Mapbox.defaultProps, {
 
 export type StaticMapProps = {
   gl?: any,
+  mapboxgl: any,
   width: number | string,
   height: number | string,
   preventStyleDiffing: boolean,
@@ -128,14 +129,14 @@ export default class StaticMap extends PureComponent<StaticMapProps, State> {
 
   componentDidMount() {
     if (!StaticMap.supported()) {
-      return;
+      //return;
     }
     const {mapStyle} = this.props;
 
     this._mapbox = new Mapbox(
       // $FlowFixMe
       Object.assign({}, this.props, {
-        mapboxgl, // Handle to mapbox-gl library
+        //mapboxgl, // Handle to mapbox-gl library
         width: this._width,
         height: this._height,
         container: this._mapboxMapRef.current,
